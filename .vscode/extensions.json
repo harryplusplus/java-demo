@@ -2,10 +2,12 @@
   "recommendations": [
     "eamodio.gitlens",
     "editorconfig.editorconfig",
+    "esafirm.kotlin-formatter",
     "esbenp.prettier-vscode",
     "ginfuru.ginfuru-better-solarized-dark-theme",
     "mathiasfrohlich.kotlin",
     "redhat.java",
+    "redhat.vscode-yaml",
     "streetsidesoftware.code-spell-checker",
     "thinker.sort-json",
     "usernamehw.errorlens",
