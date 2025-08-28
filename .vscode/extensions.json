@@ -6,6 +6,7 @@
     "ginfuru.ginfuru-better-solarized-dark-theme",
     "mathiasfrohlich.kotlin",
     "redhat.java",
+    "redhat.vscode-yaml",
     "streetsidesoftware.code-spell-checker",
     "thinker.sort-json",
     "usernamehw.errorlens",
@@ -16,7 +17,6 @@
     "vscjava.vscode-java-test",
     "vscjava.vscode-maven",
     "vscjava.vscode-spring-boot-dashboard",
-    "vscjava.vscode-spring-initializr",
-    "redhat.vscode-yaml"
+    "vscjava.vscode-spring-initializr"
   ]
 }
