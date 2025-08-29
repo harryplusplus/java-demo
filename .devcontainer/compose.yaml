@@ -5,5 +5,5 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ../:/work
-    network_mode: host
     restart: 'no'
+    privileged: true
