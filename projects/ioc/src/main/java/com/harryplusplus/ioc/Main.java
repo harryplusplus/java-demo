@@ -6,7 +6,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("This is IoC Demo!");
+        System.out.println("This is a IoC Demo!");
         final var container = new Container();
         container.register(new Main.Foo());
         container.register(new Main.Foo());
