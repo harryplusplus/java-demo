@@ -13,8 +13,27 @@ sudo apt install -y wget
 # Use xdg-open to forward URLs to the host system.
 sudo apt install -y xdg-utils
 
-echo 'alias ll="ls -a -p -lh"' >> ~/.bashrc
-echo >> ~/.bashrc
+# brew
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> "$HOME/.bashrc"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo apt install -y build-essential
+brew install gcc
+brew --version
+
+# ktlint
+brew install ktlint
+ktlint --version
+
+# k6
+bash .devcontainer/install_k6.sh
+k6 --version
+
+# alias
+echo >> "$HOME/.bashrc"
+echo 'alias ll="ls -a -p -lh"' >> "$HOME/.bashrc"
+echo >> "$HOME/.bashrc"
 
 # sdk
 curl -s "https://get.sdkman.io?ci=true" | bash
@@ -28,20 +47,3 @@ java --version
 # gradle
 sdk install gradle 8.14.3
 gradle --version
-
-# k6
-bash .devcontainer/install_k6.sh
-k6 --version
-
-# brew
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo >> "$HOME/.bashrc"
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-sudo apt install -y build-essential
-brew install gcc
-brew --version
-
-# ktlint
-brew install ktlint
-ktlint --version
