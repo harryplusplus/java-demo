@@ -1,8 +1,6 @@
 services:
   work:
-    build:
-      context: ../
-      dockerfile: .devcontainer/Dockerfile
+    image: mcr.microsoft.com/devcontainers/base:debian-12
     volumes:
       - ../:/work
     restart: 'no'
