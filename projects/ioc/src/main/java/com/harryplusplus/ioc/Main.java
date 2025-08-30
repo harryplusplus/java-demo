@@ -2,7 +2,13 @@ package com.harryplusplus.ioc;
 
 public class Main {
 
+    static class Foo {
+    }
+
     public static void main(String[] args) {
-        System.out.println("@");
+        System.out.println("This is IoC Demo!");
+        final var container = new Container();
+        container.register(new Main.Foo());
+        container.register(new Main.Foo());
     }
 }
