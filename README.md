@@ -2,10 +2,10 @@
 
 이 데모 리포지토리는 여러 프로젝트로 구성되어 있으며, 목차는 다음과 같습니다.
 
-[1. Spring Boot IoC Container 간단 구현](#1-spring-boot-ioc-container-간단-구현)  
+[1. Spring Boot IoC Container 간단 구현](#1-spring-boot-ioc-컨테이너-및-컴포넌트-스캔-구현)  
 [2. TODO](#2-todo)
 
-## 1. Spring Boot IoC Container 간단 구현
+## 1. Spring Boot IoC 컨테이너 및 컴포넌트 스캔 구현
 
 프로젝트 경로: `projects/ioc`
 
