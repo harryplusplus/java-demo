@@ -1,9 +1,21 @@
-# Java Development Environment
+# Java 활용 능력 데모
 
-## Add to `remote` and `merge`
+이 데모 리포지토리는 여러 프로젝트로 구성되어 있으며, 목차는 다음과 같습니다.
 
-```sh
-git remote add --fetch --track main java-devenv https://github.com/harryplusplus/java-devenv.git
-git branch java-devenv java-devenv/main
-git merge java-devenv
-```
+[1. Spring Boot IoC Container 간단 구현](#1-spring-boot-ioc-container-간단-구현)  
+[2. TODO](#2-todo)
+
+## 1. Spring Boot IoC Container 간단 구현
+
+프로젝트 경로: `projects/ioc`
+
+[**Spring Boot**](https://spring.io/projects/spring-boot)는 대부분의 실무자가 백엔드 개발에 사용하는 **자바** 프레임워크입니다.
+스프링 부트 생태계는 견고하고 확장 가능한 솔루션을 구축하는 데 적합합니다.
+따라서 스프링 부트에 대한 깊은 이해는 실무 능력과 직결됩니다.
+
+이 프로젝트는 스프링 부트 활용에 앞서 핵심 원리에 대한 이해를 보여주는 것을 목표로 합니다.
+자바의 어노테이션과 리플렉션을 활용하여 **IoC 컨테이너**와 **컴포넌트 스캔**을 직접 구현했습니다.
+
+TODO
+
+## 2. TODO
