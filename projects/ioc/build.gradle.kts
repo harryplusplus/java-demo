@@ -1,7 +1,5 @@
-plugins {
-    application
-}
-
-application {
-    mainClass = "com.harryplusplus.ioc.Main"
+dependencies {
+    implementation(libs.jakarta.validation.api)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
