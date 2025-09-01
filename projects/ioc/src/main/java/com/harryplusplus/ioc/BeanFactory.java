@@ -15,7 +15,7 @@ public class BeanFactory {
     final Map<String, Object> singletonBeanMap = new HashMap<>();
 
     public BeanFactory(@NotNull Class<?> mainClass) throws Exception {
-        if (mainClass.isAnnotationPresent(ComponentScan.class)) {
+        if (BeanUtils.hasAnnotation(mainClass, ComponentScan.class)) {
             final BeanDefinitionScanner scanner = new BeanDefinitionScanner(beanDefinitionMap);
             scanner.scan(mainClass.getPackageName());
         }

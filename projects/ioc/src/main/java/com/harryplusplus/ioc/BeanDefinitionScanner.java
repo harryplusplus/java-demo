@@ -3,12 +3,9 @@ package com.harryplusplus.ioc;
 import jakarta.validation.constraints.NotNull;
 
 import java.io.File;
-import java.lang.annotation.Annotation;
 import java.net.URL;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class BeanDefinitionScanner {
     private @NotNull
@@ -38,7 +35,7 @@ public class BeanDefinitionScanner {
             } else if (file.getName().endsWith(".class")) {
                 final String className = packageName + "." + file.getName().substring(0, file.getName().length() - 6);
                 final Class<?> beanClass = Class.forName(className);
-                if (hasAnnotation(beanClass, Component.class)) {
+                if (BeanUtils.hasAnnotation(beanClass, Component.class)) {
                     final Scope scope = beanClass.getAnnotation(Scope.class);
                     final String scopeValue = scope != null ? scope.value() : BeanDefinition.SCOPE_SINGLETON;
                     final String[] scopes = {BeanDefinition.SCOPE_SINGLETON, BeanDefinition.SCOPE_PROTOTYPE};
@@ -51,24 +48,5 @@ public class BeanDefinitionScanner {
                 }
             }
         }
-    }
-
-    private boolean hasAnnotation(@NotNull Class<?> beanClass,
-                                  @NotNull Class<? extends Annotation> annotationClass) {
-        return hasAnnotationRecursive(beanClass, annotationClass, new HashSet<>());
-    }
-
-    private boolean hasAnnotationRecursive(@NotNull Class<?> baseClass,
-                                           @NotNull Class<? extends Annotation> annotationClass,
-                                           @NotNull Set<Class<?>> visited) {
-        if (!visited.add(baseClass))
-            return false;
-        if (baseClass.isAnnotationPresent(annotationClass))
-            return true;
-        for (Annotation annotation : baseClass.getAnnotations()) {
-            if (hasAnnotationRecursive(annotation.annotationType(), annotationClass, visited))
-                return true;
-        }
-        return false;
     }
 }
