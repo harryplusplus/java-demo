@@ -44,7 +44,7 @@ public class BeanFactory {
         }
     }
 
-    private Object newBean(@NotNull Class<?> beanClass) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    private Object newBean(@NotNull Class<?> beanClass) throws InvocationTargetException, InstantiationException, IllegalAccessException {
         final Constructor<?> constructor = beanClass.getDeclaredConstructors()[0];
         final Class<?>[] parameterTypes = constructor.getParameterTypes();
         final Object[] args = Arrays.stream(parameterTypes).map(x -> {

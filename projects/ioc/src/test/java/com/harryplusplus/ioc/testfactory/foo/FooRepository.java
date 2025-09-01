@@ -6,7 +6,8 @@ import jakarta.validation.constraints.NotNull;
 
 @Repository
 public class FooRepository {
-    private @NotNull Connection connection;
+    private @NotNull
+    final Connection connection;
 
     public FooRepository(@NotNull Connection connection) {
         this.connection = connection;
