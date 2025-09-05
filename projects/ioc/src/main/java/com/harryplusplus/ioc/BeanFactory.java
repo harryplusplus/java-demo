@@ -24,11 +24,13 @@ public class BeanFactory {
     public <T> T getBean(@NotNull Class<T> beanClass) throws Exception {
         final String beanName = BeanUtils.getBeanName(beanClass);
         final BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
-        if (beanDefinition == null) throw new Exception("Unexpected bean name. name: " + beanName);
+        if (beanDefinition == null)
+            throw new Exception("Unexpected bean name. name: " + beanName);
+
         final String scope = beanDefinition.getScope();
-        if (beanClass != beanDefinition.getBeanClass()) {
+        if (beanClass != beanDefinition.getBeanClass())
             throw new Exception("Unexpected bean class. expected: " + beanClass + " actual: " + beanDefinition.getBeanClass());
-        }
+
         if (scope.equals(BeanDefinition.SCOPE_SINGLETON)) {
             Object singletonBean = singletonBeanMap.get(beanName);
             if (singletonBean == null) {
@@ -36,12 +38,14 @@ public class BeanFactory {
                 singletonBean = singletonBeanMap.get(beanName);
             }
             return beanClass.cast(singletonBean);
-        } else if (scope.equals(BeanDefinition.SCOPE_PROTOTYPE)) {
+        }
+
+        if (scope.equals(BeanDefinition.SCOPE_PROTOTYPE)) {
             Object prototypeBean = newBean(beanClass);
             return beanClass.cast(prototypeBean);
-        } else {
-            throw new Exception("Unexpected bean scope. scope: " + scope);
         }
+
+        throw new Exception("Unexpected bean scope. scope: " + scope);
     }
 
     private Object newBean(@NotNull Class<?> beanClass) throws InvocationTargetException, InstantiationException, IllegalAccessException {
