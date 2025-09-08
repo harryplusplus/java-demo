@@ -10,37 +10,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class BeanFactoryTest {
-    private BeanFactory factory;
+  private BeanFactory factory;
 
-    @BeforeEach
-    void setup() throws Exception {
-        factory = new BeanFactory(App.class);
-    }
+  @BeforeEach
+  void setup() throws Exception {
+    factory = new BeanFactory(App.class);
+  }
 
-    @Test
-    void testSingleton() throws Exception {
-        final FooController controller1 = factory.getBean(FooController.class);
-        final FooController controller2 = factory.getBean(FooController.class);
-        assertEquals(controller1, controller2);
-    }
+  @Test
+  void testSingleton() throws Exception {
+    FooController controller1 = factory.getBean(FooController.class);
+    FooController controller2 = factory.getBean(FooController.class);
+    assertEquals(controller1, controller2);
+  }
 
-    @Test
-    void testPrototype() throws Exception {
-        final Connection connection1 = factory.getBean(Connection.class);
-        final Connection connection2 = factory.getBean(Connection.class);
-        assertNotEquals(connection1, connection2);
-    }
+  @Test
+  void testPrototype() throws Exception {
+    Connection connection1 = factory.getBean(Connection.class);
+    Connection connection2 = factory.getBean(Connection.class);
+    assertNotEquals(connection1, connection2);
+  }
 
-    @Test
-    void testSayHello0() throws Exception {
-        final FooController controller = factory.getBean(FooController.class);
-        assertEquals("Hello! connectionId: 0", controller.sayHello());
-    }
+  @Test
+  void testSayHello0() throws Exception {
+    FooController controller = factory.getBean(FooController.class);
+    assertEquals("Hello! connectionId: 0", controller.sayHello());
+  }
 
-    @Test
-    void testSayHello1() throws Exception {
-        final FooController controller = factory.getBean(FooController.class);
-        assertEquals("Hello! connectionId: 1", controller.sayHello());
-    }
-
+  @Test
+  void testSayHello1() throws Exception {
+    FooController controller = factory.getBean(FooController.class);
+    assertEquals("Hello! connectionId: 1", controller.sayHello());
+  }
 }

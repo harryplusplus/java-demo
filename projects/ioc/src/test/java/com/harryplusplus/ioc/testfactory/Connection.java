@@ -7,14 +7,14 @@ import com.harryplusplus.ioc.Scope;
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class Connection {
-    private static int globalConnectionId = 0;
-    private final int connectionId;
+  private static int globalConnectionId = 0;
+  private final int connectionId;
 
-    public Connection() {
-        this.connectionId = globalConnectionId++;
-    }
+  public Connection() {
+    this.connectionId = globalConnectionId++;
+  }
 
-    public int getConnectionId() {
-        return connectionId;
-    }
+  public int getConnectionId() {
+    return connectionId;
+  }
 }
