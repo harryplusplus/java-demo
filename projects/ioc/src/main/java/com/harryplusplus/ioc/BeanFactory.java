@@ -9,10 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BeanFactory {
-  private @NotNull
-  final Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
-  private @NotNull
-  final Map<String, Object> singletonBeanMap = new HashMap<>();
+  private @NotNull final Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
+  private @NotNull final Map<String, Object> singletonBeanMap = new HashMap<>();
 
   public BeanFactory(@NotNull Class<?> mainClass) throws Exception {
     if (BeanUtils.hasAnnotation(mainClass, ComponentScan.class)) {
@@ -29,7 +27,8 @@ public class BeanFactory {
 
     String scope = beanDefinition.getScope();
     if (beanClass != beanDefinition.getBeanClass())
-      throw new Exception("Unexpected bean class. expected: " + beanClass + " actual: " + beanDefinition.getBeanClass());
+      throw new Exception(
+          "Unexpected bean class. expected: " + beanClass + " actual: " + beanDefinition.getBeanClass());
 
     if (scope.equals(BeanDefinition.SCOPE_SINGLETON)) {
       Object singletonBean = singletonBeanMap.get(beanName);
@@ -48,7 +47,8 @@ public class BeanFactory {
     throw new Exception("Unexpected bean scope. scope: " + scope);
   }
 
-  private Object newBean(@NotNull Class<?> beanClass) throws InvocationTargetException, InstantiationException, IllegalAccessException {
+  private Object newBean(@NotNull Class<?> beanClass)
+      throws InvocationTargetException, InstantiationException, IllegalAccessException {
     Constructor<?> constructor = beanClass.getDeclaredConstructors()[0];
     Class<?>[] parameterTypes = constructor.getParameterTypes();
     Object[] args = Arrays.stream(parameterTypes).map(x -> {

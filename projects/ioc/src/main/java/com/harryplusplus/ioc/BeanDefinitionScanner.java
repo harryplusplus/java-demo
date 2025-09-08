@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 public class BeanDefinitionScanner {
-  private @NotNull
-  final Map<String, BeanDefinition> beanDefinitionMap;
+  private @NotNull final Map<String, BeanDefinition> beanDefinitionMap;
 
   public BeanDefinitionScanner(@NotNull Map<String, BeanDefinition> beanDefinitionMap) {
     this.beanDefinitionMap = beanDefinitionMap;
@@ -26,8 +25,9 @@ public class BeanDefinitionScanner {
     scanRecursive(directory, packageName);
   }
 
-  private void scanRecursive(@NotNull File directory,
-                             @NotNull String packageName) throws Exception {
+  private void scanRecursive(
+      @NotNull File directory,
+      @NotNull String packageName) throws Exception {
     if (!directory.exists())
       return;
 
@@ -44,7 +44,7 @@ public class BeanDefinitionScanner {
         if (BeanUtils.hasAnnotation(beanClass, Component.class)) {
           Scope scope = beanClass.getAnnotation(Scope.class);
           String scopeValue = scope != null ? scope.value() : BeanDefinition.SCOPE_SINGLETON;
-          String[] scopes = {BeanDefinition.SCOPE_SINGLETON, BeanDefinition.SCOPE_PROTOTYPE};
+          String[] scopes = { BeanDefinition.SCOPE_SINGLETON, BeanDefinition.SCOPE_PROTOTYPE };
           if (Arrays.asList(scopes).contains(scopeValue)) {
             String beanName = BeanUtils.getBeanName(beanClass);
             beanDefinitionMap.put(beanName, new BeanDefinition(beanClass, scopeValue));

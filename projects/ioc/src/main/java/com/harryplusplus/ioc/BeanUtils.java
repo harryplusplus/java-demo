@@ -12,15 +12,16 @@ public class BeanUtils {
     return Character.toLowerCase(simpleName.charAt(0)) + simpleName.substring(1);
   }
 
-  public static boolean hasAnnotation(@NotNull Class<?> beanClass,
-                                      @NotNull Class<? extends Annotation> annotationClass) {
+  public static boolean hasAnnotation(
+      @NotNull Class<?> beanClass,
+      @NotNull Class<? extends Annotation> annotationClass) {
     return hasAnnotationRecursive(beanClass, annotationClass, new HashSet<>());
   }
 
   private static boolean hasAnnotationRecursive(
-    @NotNull Class<?> baseClass,
-    @NotNull Class<? extends Annotation> annotationClass,
-    @NotNull Set<Class<?>> visited) {
+      @NotNull Class<?> baseClass,
+      @NotNull Class<? extends Annotation> annotationClass,
+      @NotNull Set<Class<?>> visited) {
     if (!visited.add(baseClass))
       return false;
     if (baseClass.isAnnotationPresent(annotationClass))
