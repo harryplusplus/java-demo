@@ -19,16 +19,22 @@ public class BeanDefinitionScanner {
     String path = packageName.replace('.', '/');
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     URL resource = classLoader.getResource(path);
-    if (resource == null) throw new Exception("Package not found. packageName: " + packageName);
+    if (resource == null)
+      throw new Exception("Package not found. packageName: " + packageName);
+
     File directory = new File(resource.toURI());
     scanRecursive(directory, packageName);
   }
 
   private void scanRecursive(@NotNull File directory,
                              @NotNull String packageName) throws Exception {
-    if (!directory.exists()) return;
+    if (!directory.exists())
+      return;
+
     File[] files = directory.listFiles();
-    if (files == null) return;
+    if (files == null)
+      return;
+
     for (File file : files) {
       if (file.isDirectory()) {
         scanRecursive(file, packageName + "." + file.getName());
