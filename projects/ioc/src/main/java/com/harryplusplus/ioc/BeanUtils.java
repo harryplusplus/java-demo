@@ -1,10 +1,10 @@
 package com.harryplusplus.ioc;
 
-import jakarta.validation.constraints.NotNull;
-
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
+
+import jakarta.validation.constraints.NotNull;
 
 public class BeanUtils {
   public static String getBeanName(@NotNull Class<?> beanClass) {

@@ -1,19 +1,20 @@
 package com.harryplusplus.ioc;
 
-import com.harryplusplus.ioc.testfactory.App;
-import com.harryplusplus.ioc.testfactory.Connection;
-import com.harryplusplus.ioc.testfactory.foo.FooController;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class BeanFactoryTest {
-  private BeanFactory factory;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-  @BeforeEach
-  void setup() throws Exception {
+import com.harryplusplus.ioc.testfactory.App;
+import com.harryplusplus.ioc.testfactory.Connection;
+import com.harryplusplus.ioc.testfactory.foo.FooController;
+
+class BeanFactoryTest {
+  private static BeanFactory factory;
+
+  @BeforeAll
+  static void setup() throws Exception {
     factory = new BeanFactory(App.class);
   }
 

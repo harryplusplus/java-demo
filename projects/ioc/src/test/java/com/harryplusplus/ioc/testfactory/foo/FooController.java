@@ -1,6 +1,7 @@
 package com.harryplusplus.ioc.testfactory.foo;
 
 import com.harryplusplus.ioc.Controller;
+
 import jakarta.validation.constraints.NotNull;
 
 @Controller

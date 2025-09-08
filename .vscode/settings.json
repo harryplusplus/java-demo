@@ -2,7 +2,10 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
     "editor.formatOnSave": true,
-    "editor.rulers": [100]
+    "editor.rulers": [100],
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

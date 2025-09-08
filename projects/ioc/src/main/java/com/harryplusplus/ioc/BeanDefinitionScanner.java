@@ -1,11 +1,11 @@
 package com.harryplusplus.ioc;
 
-import jakarta.validation.constraints.NotNull;
-
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Map;
+
+import jakarta.validation.constraints.NotNull;
 
 public class BeanDefinitionScanner {
   private @NotNull final Map<String, BeanDefinition> beanDefinitionMap;

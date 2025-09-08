@@ -1,6 +1,7 @@
 package com.harryplusplus.ioc.testfactory.foo;
 
 import com.harryplusplus.ioc.Service;
+
 import jakarta.validation.constraints.NotNull;
 
 @Service

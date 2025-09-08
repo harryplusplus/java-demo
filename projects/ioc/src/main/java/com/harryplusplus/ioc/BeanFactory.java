@@ -1,12 +1,12 @@
 package com.harryplusplus.ioc;
 
-import jakarta.validation.constraints.NotNull;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import jakarta.validation.constraints.NotNull;
 
 public class BeanFactory {
   private @NotNull final Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();

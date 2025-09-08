@@ -1,13 +1,14 @@
 package com.harryplusplus.ioc;
 
-import com.harryplusplus.ioc.testscanner.PrototypeComponent;
-import com.harryplusplus.ioc.testscanner.SingletonComponent;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import com.harryplusplus.ioc.testscanner.PrototypeComponent;
+import com.harryplusplus.ioc.testscanner.SingletonComponent;
 
 class BeanDefinitionScannerTest {
   @Test
