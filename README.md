@@ -45,6 +45,21 @@ class BeanDefinition {
 
 `BeanDefinitionScanner` 클래스는 자바 클래스 로더를 사용해 특정 패키지 내 클래스들의 `@Component`, `@Scope` 어노테이션을 재귀적으로 검사하고 `beanDefinitionMap`에 `BeanDefinition` 객체를 추가하는 역할입니다.
 
+예를 들어 아래와 같이 `FooController`에 `@Controller` 어노테이션을 추가할 경우 `Controller` 어노테이션은
+
+```java
+// src/test/java/com/harryplusplus/ioc/testapp/foo/FooController.java
+@Controller
+public class FooController { /* 구현 */ }
+
+// src/main/java/com/harryplusplus/ioc/Controller.java
+@Component
+public @interface Controller {}
+
+// src/main/java/com/harryplusplus/ioc/Component.java
+public @interface Component {}
+```
+
 ##### BeanDefinitionScanner 클래스 다이어그램
 
 ```mermaid
