@@ -1,4 +1,4 @@
-package com.harryplusplus.ioc.testfactory;
+package com.harryplusplus.ioc.testapp;
 
 import com.harryplusplus.ioc.BeanDefinition;
 import com.harryplusplus.ioc.Component;

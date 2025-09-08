@@ -8,11 +8,11 @@ import java.util.Map;
 
 import jakarta.validation.constraints.NotNull;
 
-public class BeanFactory {
+public class ApplicationContext {
   private @NotNull final Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
   private @NotNull final Map<String, Object> singletonBeanMap = new HashMap<>();
 
-  public BeanFactory(@NotNull Class<?> mainClass) throws Exception {
+  public ApplicationContext(@NotNull Class<?> mainClass) throws Exception {
     if (BeanUtils.hasAnnotation(mainClass, ComponentScan.class)) {
       BeanDefinitionScanner scanner = new BeanDefinitionScanner(beanDefinitionMap);
       scanner.scan(mainClass.getPackageName());
@@ -20,6 +20,9 @@ public class BeanFactory {
   }
 
   public <T> T getBean(@NotNull Class<T> beanClass) throws Exception {
+    if (beanClass == ApplicationContext.class)
+      return beanClass.cast(this);
+
     String beanName = BeanUtils.getBeanName(beanClass);
     BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
     if (beanDefinition == null)

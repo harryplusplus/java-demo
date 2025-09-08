@@ -1,4 +1,4 @@
-package com.harryplusplus.ioc.testfactory.foo;
+package com.harryplusplus.ioc.testapp.foo;
 
 import com.harryplusplus.ioc.Controller;
 
